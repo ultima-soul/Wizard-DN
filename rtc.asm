@@ -1,8 +1,9 @@
 @ Fire Red RTC Hack
-@ Version 1.0.2
+@ Version 1.0.3
 @ By ZodiacDaGreat
 @ Modified by Shiny Quagsire
-@ Put 00B5 0148 0047 0000 [Reverse Address+1] 0000 10BC at 0x4B0
+@ Modified by UltimaSoul
+@ Put 00 B5 01 48 00 47 00 00 [Reverse Address+1] 00 00 10 BC at 0x4B0
 @ ----------------------------------------------------------------
 .code 16
 .thumb
@@ -36,19 +37,17 @@
 @ Seting Up RTC
 .SetupRTC:
 	push {r4, r5, lr}
-	ldr r3, .IOPORTCNT
-	mov r2, #0x1
-	strh r2, [r3] @ Enable RTC
-
-	mov r5, #0x5
-	sub r3, r3, #0x4 @ r3 = IOPORTDATA
-	strh r2, [r3]
-	strh r5, [r3]
-
 	ldr r4, .IOPORTDIRECTION
 	mov r3, #0x7
 	strh r3, [r4]
-
+	
+	ldr r3, .IOPORTDATA
+	mov r2, #0x1
+	strh r2, [r3, #4] @ Enable RTC
+	strh r2, [r3]
+	mov r5, #0x5
+	strh r5, [r3]
+	
 	mov r0, #0x63
 	bl .RTCFunc1
 
@@ -129,11 +128,12 @@ skipafewbytes:
 	mov r1, #0x1
 	mov r3, #0x7
 	mov r4, #0x5
-	strh r1, [r2]
-	mov r6, r0
 	strh r3, [r5]
+	strh r1, [r2, #4]
 	strh r1, [r2]
 	strh r4, [r2]
+	mov r6, r0
+	
 
 	mov r0, #0x65
 	bl .RTCFunc1
@@ -422,7 +422,7 @@ bx_r1:
 .align 2
 .UnkFunc1:		.word 0x0800B179
 .UnkFunc2:		.word 0x08000511
-.Return:			.word 0x080004bF
+.Return:			.word 0x080004BF
 
 .Temp:			.word 0x03007E5C
 .IWRAMRTC:		.word 0x0300553C
