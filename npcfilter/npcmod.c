@@ -19,6 +19,8 @@ const unsigned int nonList[4];
 void filter(unsigned int derp, unsigned int offset)
 {
 	offset = 0x020373F8 + (derp * 0x20);
+	void (*cpuset)(int,int,int) = (void(*)(int,int,int))0x81e3b64+1;
+    cpuset(offset, 0x203fd00 + derp * 0x20, 16);
 	
 	if(bwFilter[0] > 0 && bwFilter[0] < 4)
 	{
@@ -82,6 +84,8 @@ void filter(unsigned int derp, unsigned int offset)
 
 	for(int i = 0; i < 0x200; i++)
 		BG_PaletteMem2[i] = BG_PaletteMem[i];
+	
+	if (*(char*)(0x20385F4 + 6) == 1 && *(char*)(0x20385F4 + 10)) cpuset(0x20385F4 + 4, 0x20375f8, 0x200 | 1 << 24);
 }
 
 int div(int a, int b)

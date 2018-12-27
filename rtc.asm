@@ -433,7 +433,7 @@ twoK:			.word 0x7D0
 
 statusbyte:		.word 0x0203C000
 updateMapPal:		.word 0x08059AD8+1
-updateNPCPal:		.word 0x0805FECC+1
+updateNPCPal:		.word 0x08XXXXXX+1 @Put your Navenatox_Pallete_Patch_Fix.asm offset here
 map:				.word 0x02036DFC
 battlecheck:	     .word 0x02024018
 mainloop:			.word 0x08079E0D
