@@ -1,10 +1,12 @@
 How to Use
 --------------
-You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope of these steps.
+You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope from these steps.
 
 1. Put your FireRed rom named Test.gba into the mapfilter folder. Run compile.sh and npcmod.c will be inserted for you into the rom. Then assemble and insert mapfilter/npchook.asm at 0x80598CC.
+   You can also choose to customize where to insert npcmod.c by editing B02500, but then you will have to modify mapfilter/npchook.asm to point to the new offset.
 
 2. Put your FireRed rom named Test.gba into the npcfilter folder. Run compile.sh and npcmod.c will be inserted for you into the rom. Then assemble and insert npcfilter/npchook.asm at 0x8083598.
+   You can also choose to customize where to insert npcmod.c by editing B01500, but then you will have to modify npcfilter/npchook.asm to point to the new offset.
 
 3. Now assemble and insert rtc.asm into free space. You can change the 0x8B01000 at the top to your desired free space as 0x8XXXXXX where XX XX XX is your desired free space. In the assembled file, ignore all of the FF's.
    Insert 00 B5 01 48 00 47 00 00 XX+1 XX XX 08 00 00 10 BC at 0x80004B0 where XX XX XX is the reversed offset of where you inserted rtc.asm. 
