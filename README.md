@@ -1,7 +1,7 @@
 How to Use
 --------------
 You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope from these steps. 
-If you are using Navenatox's Dynamic Overworld Palettes patch, use the dynamic_overworld_palettes branch.
+If you are using [Navenatox's Dynamic Overworld Palettes](https://github.com/Navenatox/DynamicOverworldPalettes) patch, use the dynamic_overworld_palettes branch.
 
 1. Put your FireRed rom named Test.gba into the mapfilter folder. Run compile.sh and npcmod.c will be inserted for you into the rom. Then assemble and insert mapfilter/npchook.asm at 0x80598CC.
    You can also choose to customize where to insert npcmod.c by editing B02500, but then you will have to modify mapfilter/npchook.asm to point to the new offset.
@@ -13,7 +13,7 @@ If you are using Navenatox's Dynamic Overworld Palettes patch, use the dynamic_o
    Insert 00 B5 01 48 00 47 00 00 XX+1 XX XX 08 00 00 10 BC at 0x80004B0 where XX XX XX is the reversed offset of where you inserted rtc.asm. 
    For example, my offset is 0x8B01000 so I put 01 10 B0 in that spot.
 
-4. At 0x59A28 to 0x59A2F, add 00's. At 0x59A12, add 00 00.
+4. At 0x8059A28 to 0x8059A2F, add 00's. At 0x8059A12, add 00 00.
 
 Note: If you have an error with -lgcc when running compile.sh, change line 19 in the makefile in the current folder you're in to have the correct version of arm-none-eabi in your $DEVKITARM/gcc/lib/arm-none-eabi folder.
       For example, mine had an 8.1.0 folder in it so I changed the 4.7.1 to 8.1.0 in line 19.
