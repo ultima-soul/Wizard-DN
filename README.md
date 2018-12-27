@@ -17,7 +17,7 @@ This branch is compatible with [Navenatox's Dynamic Overworld Palettes](https://
    Insert 00 B5 01 48 00 47 00 00 XX+1 XX XX 08 00 00 10 BC at 0x80004B0 where XX XX XX is the reversed offset of where you inserted rtc.asm. 
    For example, my offset is 0x8B01000 so I put 01 10 B0 in that spot.
 
-6. At 0x59A28 to 0x59A2F, add 00's. At 0x59A12, add 00 00.
+6. At 0x8059A28 to 0x8059A2F, add 00's. At 0x8059A12, add 00 00.
 
 Note: If you have an error with -lgcc when running compile.sh, change line 19 in the makefile in the current folder you're in to have the correct version of arm-none-eabi in your $DEVKITARM/gcc/lib/arm-none-eabi folder.
       For example, mine had an 8.1.0 folder in it so I changed the 4.7.1 to 8.1.0 in line 19.
