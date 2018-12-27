@@ -1,7 +1,7 @@
 How to Use
 --------------
 You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope from these steps.
-This branch is compatible with Navenatox's Dynamic Overworld Palettes patch.
+This branch is compatible with [Navenatox's Dynamic Overworld Palettes](https://github.com/Navenatox/DynamicOverworldPalettes) patch.
 
 1. Assemble Navenatox_Pallete_Patch_Fix.asm and insert into free space.
 
