@@ -1,6 +1,7 @@
 How to Use
 --------------
-You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope from these steps.
+You will need to have an environment that uses a command line terminal and devkitPro installed. How to set that up is out-of-scope from these steps. 
+If you are using Navenatox's Dynamic Overworld Palettes patch, use the dynamic_overworld_palettes branch.
 
 1. Put your FireRed rom named Test.gba into the mapfilter folder. Run compile.sh and npcmod.c will be inserted for you into the rom. Then assemble and insert mapfilter/npchook.asm at 0x80598CC.
    You can also choose to customize where to insert npcmod.c by editing B02500, but then you will have to modify mapfilter/npchook.asm to point to the new offset.
