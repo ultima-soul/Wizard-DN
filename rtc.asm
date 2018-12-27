@@ -8,7 +8,7 @@
 .code 16
 .thumb
 
-.org 0x08B01000
+.org 0x08B01000, 0xFF
 .Main:
 	push {r4}
 
